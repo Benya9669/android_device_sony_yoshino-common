@@ -37,6 +37,8 @@ LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
     packages/resources/devicesettings/res
 
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
 LOCAL_REQUIRED_MODULES := privapp-permissions_com.yoshino.parts.xml
 
 include $(BUILD_PACKAGE)

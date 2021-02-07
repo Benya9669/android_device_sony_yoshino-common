@@ -31,6 +31,26 @@ public class DeviceSettingsFragment extends PreferenceFragment implements Prefer
     public void onCreatePreferences(Bundle bundle, String key) {
         addPreferencesFromResource(R.xml.device_settings);
 
+        String buildFlavor = SystemProperties.get("ro.build.flavor", "rr_lilac");
+        if (buildFlavor.contains("aosp")) {
+            PreferenceCategory cameraCategory = findPreference("camera_key");
+            if (cameraCategory != null) {
+                cameraCategory.setVisible(false);
+            }
+        }
+
+        SwitchPreference cameraPref = findPreference(CAMERA_LONG_PRESS);
+        if (cameraPref != null) {
+            cameraPref.setChecked(Settings.System.getInt(cameraPref.getContext().getContentResolver(), CAMERA_LONG_PRESS, 1) == 1);
+            cameraPref.setOnPreferenceChangeListener(this);
+        }
+
+        SwitchPreference focusPref = findPreference(FOCUS_TOGGLE_FLASH);
+        if (focusPref != null) {
+            focusPref.setChecked(Settings.System.getInt(focusPref.getContext().getContentResolver(), FOCUS_TOGGLE_FLASH, 0) == 1);
+            focusPref.setOnPreferenceChangeListener(this);
+        }
+
         SwitchPreference glovePref = findPreference(GLOVE_MODE);
         if (glovePref != null) {
             glovePref.setChecked(Settings.System.getInt(glovePref.getContext().getContentResolver(), GLOVE_MODE, 0) == 1);
@@ -75,6 +95,12 @@ public class DeviceSettingsFragment extends PreferenceFragment implements Prefer
     @Override
     public boolean onPreferenceChange(Preference preference, Object o) {
         switch (preference.getKey()) {
+            case CAMERA_LONG_PRESS:
+                Settings.System.putInt(preference.getContext().getContentResolver(), CAMERA_LONG_PRESS, (boolean) o ? 1 : 0);
+                return true;
+            case FOCUS_TOGGLE_FLASH:
+                Settings.System.putInt(preference.getContext().getContentResolver(), FOCUS_TOGGLE_FLASH, (boolean) o ? 1 : 0);
+                return true;
             case GLOVE_MODE:
                 Settings.System.putInt(preference.getContext().getContentResolver(), GLOVE_MODE, (boolean) o ? 1 : 0);
                 SystemProperties.set(GLOVE_PROP, (boolean) o ? "1" : "0");
