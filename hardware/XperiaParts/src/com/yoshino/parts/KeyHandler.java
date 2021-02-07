@@ -27,7 +27,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import com.android.internal.os.DeviceKeyHandler;
-import com.android.internal.util.havoc.ActionUtils;
 
 import java.util.List;
 
@@ -79,7 +78,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 if (isCameraAppRunning()) {
                     return keyEvent;
                 }
-                ActionUtils.toggleCameraFlash();
                 return null;
             }
         }
