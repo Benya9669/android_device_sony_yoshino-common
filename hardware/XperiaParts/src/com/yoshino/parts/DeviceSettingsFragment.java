@@ -45,6 +45,12 @@ public class DeviceSettingsFragment extends PreferenceFragment implements Prefer
             cameraPref.setOnPreferenceChangeListener(this);
         }
 
+        SwitchPreference focusPref = findPreference(FOCUS_TOGGLE_FLASH);
+        if (focusPref != null) {
+            focusPref.setChecked(Settings.System.getInt(focusPref.getContext().getContentResolver(), FOCUS_TOGGLE_FLASH, 0) == 1);
+            focusPref.setOnPreferenceChangeListener(this);
+        }
+
         SwitchPreference glovePref = findPreference(GLOVE_MODE);
         if (glovePref != null) {
             glovePref.setChecked(Settings.System.getInt(glovePref.getContext().getContentResolver(), GLOVE_MODE, 0) == 1);
@@ -91,6 +97,9 @@ public class DeviceSettingsFragment extends PreferenceFragment implements Prefer
         switch (preference.getKey()) {
             case CAMERA_LONG_PRESS:
                 Settings.System.putInt(preference.getContext().getContentResolver(), CAMERA_LONG_PRESS, (boolean) o ? 1 : 0);
+                return true;
+            case FOCUS_TOGGLE_FLASH:
+                Settings.System.putInt(preference.getContext().getContentResolver(), FOCUS_TOGGLE_FLASH, (boolean) o ? 1 : 0);
                 return true;
             case GLOVE_MODE:
                 Settings.System.putInt(preference.getContext().getContentResolver(), GLOVE_MODE, (boolean) o ? 1 : 0);
