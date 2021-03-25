@@ -1,5 +1,3 @@
-# system prop for yoshino-common
-
 ### AUDIO
 # AAC 5.1 output enabled
 media.aac_51_output_enabled=true
@@ -45,6 +43,10 @@ ro.bluetooth.wipower=true
 
 ### CAMERA
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap,com.google.android.GoogleCamera
+
+### CHARGER
+ro.charger.disable_init_blank=true
+ro.charger.enable_suspend=true
 
 ### DISPLAY
 # Assertive display
@@ -98,20 +100,12 @@ ro.nfc.port=I2C
 ro.nfc.se.sim.enable=true
 ro.nfc.se.smx.enable=false
 
-### PERFORMANCE
-# Core control max/min CPU's
-ro.vendor.qti.core_ctl_max_cpu=4
-ro.vendor.qti.core_ctl_min_cpu=2
-
-# Sched colocation
-sched.colocate.enable=1
-
 ### RADIO
 # CNE
 persist.vendor.cne.feature=1
 
 # OpenCS
-ro.semc.version.opencs=1;
+ro.semc.version.opencs=1
 
 # Mobile data disable on first boot after clean flash
 ro.com.android.prov_mobiledata=false
@@ -148,7 +142,6 @@ persist.rmnet.data.enable=true
 
 # Telephony
 ro.com.android.dataroaming=false
-persist.ims.disableUserAgent=1
 telephony.lteOnCdmaDevice=0
 
 ### SD
@@ -201,6 +194,9 @@ ro.vendor.qf_use_report_period=false
 
 ### USB
 sys.usb.controller=a800000.dwc3
+
+### VALUE-ADD
+ro.vendor.qti.va_aosp.support=1
 
 ### WFD
 # Property to enable user to access Google WFD settings.

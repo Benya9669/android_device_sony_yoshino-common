@@ -114,8 +114,9 @@ PRODUCT_PACKAGES += \
 
 # HEALTH
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl:64 \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
 
 # LIGHT
 PRODUCT_PACKAGES += \
@@ -127,17 +128,14 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
-# NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.1-service
-
 # POWER
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power@1.3-service.yoshino
 
 # RADIO
 PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl \
+    android.hardware.radio@1.1 \
     android.hardware.radio.config@1.0
 
 # RENDERSCRIPT
@@ -148,12 +146,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
-
-# THERMAL
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.1-impl \
-    android.hardware.thermal@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
@@ -193,10 +185,6 @@ PRODUCT_PACKAGES += \
 ### TETHERING
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
-
-### THERMAL
-PRODUCT_PACKAGES += \
-    thermal.msm8998
 
 ### VR
 PRODUCT_PACKAGES += \

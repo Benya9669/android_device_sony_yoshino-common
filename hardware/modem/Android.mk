@@ -1,5 +1,3 @@
-ifeq ($(BOARD_MODEM_CUSTOMIZATIONS),true)
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -20,6 +18,9 @@ ifeq ($(TARGET_DEVICE),poplar_canada)
 endif
 ifeq ($(TARGET_DEVICE),poplar_dsds)
 	$(hide) ln -sf amss_fsg_poplar_dsds_tar.mbn $@/default
+endif
+ifeq ($(TARGET_DEVICE),poplar_kddi)
+	$(hide) ln -sf amss_fsg_poplar_tar.mbn $@/default
 endif
 ifeq ($(TARGET_DEVICE),maple)
 	$(hide) ln -sf amss_fsg_maple_tar.mbn $@/default
@@ -43,5 +44,3 @@ LOCAL_MODULE := ta_cust_version
 LOCAL_SRC_FILES := ta_cust_version.c
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_EXECUTABLE)
-
-endif

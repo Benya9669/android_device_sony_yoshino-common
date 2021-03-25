@@ -82,9 +82,13 @@
 /mnt/vendor/persist/wlan(/.*)?                                  u:object_r:persist_wlan_file:s0
 
 # SYSFS
+/sys/class/kgsl(/.*)?                                           u:object_r:sysfs_kgsl:s0
+
 /sys/class/leds/vibrator/activate                               u:object_r:sysfs_leds:s0
 
 /sys/class/graphics/fb([0-3])+/pa                               u:object_r:sysfs_graphics:s0
+
+/sys/devices/soc                                               u:object_r:sysfs_socinfo:s0
 
 /sys/devices/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qpnp,fg/rated_capacity u:object_r:sysfs_battery_supply:s0
 /sys/devices/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qpnp,fg/batt_aging_level u:object_r:sysfs_battery_supply:s0
@@ -116,6 +120,8 @@
 
 /sys/devices/soc/780000.qcom,msm-core/uio/uio1/name             u:object_r:sysfs_uio:s0
 
+/sys/devices/virtual/graphics/fb([0-3])+/idle_state             u:object_r:sysfs_graphics:s0
+
 /sys/devices/virtual/input/input[0-9]+/als_Itime                u:object_r:sysfs_tof_rgbcir:s0
 /sys/devices/virtual/input/input[0-9]+/als_gain                 u:object_r:sysfs_tof_rgbcir:s0
 /sys/devices/virtual/input/input[0-9]+/als_power_state          u:object_r:sysfs_tof_rgbcir:s0
@@ -140,6 +146,7 @@
 # system services
 /system/bin/bt_ssr_dumper                                       u:object_r:ssr_dumper_exec:s0
 /system/bin/cacaoserver                                         u:object_r:cacaoserver_exec:s0
+/system/bin/clean_scratch_files                                 u:object_r:clean_scratch_files_exec:s0
 /system/bin/mssconfig                                           u:object_r:mss_config_exec:s0
 /system/bin/perfservice                                         u:object_r:vendor_perfservice_exec:s0
 /system/bin/sony-modem-switcher                                 u:object_r:modem_switcher_exec:s0
@@ -155,6 +162,7 @@
 /(vendor|system/vendor)/bin/hw/kobjeventd                       u:object_r:kobjeventd_exec:s0
 /(vendor|system/vendor)/bin/hw/touchbacklightd                  u:object_r:touchbacklightd_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.light@1\.0-service   u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.3-service\.yoshino      u:object_r:hal_power_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.secd@1\.0-service    u:object_r:hal_secd_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.thermal@(.*)?    u:object_r:hal_somc_thermal_daemon_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.system\.idd@1\.0-service   u:object_r:hal_idd_default_exec:s0
