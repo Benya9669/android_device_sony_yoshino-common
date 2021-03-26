@@ -19,6 +19,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES += $(call all-java-files-under, src-key)
 
 LOCAL_PACKAGE_NAME := XperiaParts
 LOCAL_CERTIFICATE := platform
@@ -36,6 +37,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
     packages/resources/devicesettings/res
+
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 LOCAL_REQUIRED_MODULES := privapp-permissions_com.yoshino.parts.xml
 
