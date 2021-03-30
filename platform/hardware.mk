@@ -203,3 +203,7 @@ PRODUCT_PACKAGES += \
 ### XPERIAPARTS
 PRODUCT_PACKAGES += \
     XperiaParts
+
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
