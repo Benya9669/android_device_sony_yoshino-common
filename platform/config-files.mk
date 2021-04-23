@@ -52,7 +52,11 @@ PRODUCT_COPY_FILES += \
 
 ### POWER
 PRODUCT_COPY_FILES += \
+ifeq ($(PRODUCT_DEVICE),lilac)
+    $(PLATFORM_PATH)/config/power/powerhint_lilac.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else
     $(PLATFORM_PATH)/config/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+endif
 
 ### QTI_LOW_POWER_WHITELIST
 PRODUCT_COPY_FILES += \
