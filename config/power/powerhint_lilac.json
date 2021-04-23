@@ -67,6 +67,7 @@
       "Values": [
         "515000000",
         "414000000",
+        "342000000",
         "257000000"
       ],
       "ResetOnInit": true
@@ -566,7 +567,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "515000000"
+      "Value": "342000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
