@@ -51,10 +51,11 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/irqbalance/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 ### POWER
-PRODUCT_COPY_FILES += \
 ifeq ($(PRODUCT_DEVICE),lilac)
+PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/power/powerhint_lilac.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 else
+PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 endif
 
